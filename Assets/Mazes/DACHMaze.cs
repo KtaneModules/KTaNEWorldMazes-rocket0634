@@ -99,6 +99,15 @@ class DACHMaze : WorldMazeBase
             ix++;
         }
 
+        // Make sure that states with clashing abbreviations have an exit with the same symbol.
+        // The openBorder() function tries to provide this, but it cannot guarantee it.
+        for (var i = 0; i < _clashes.Length; i++)
+        {
+            var exitShapes = _clashes[i].Select(state => usedShapesPerState[state]).ToArray();
+            if (exitShapes[0].All(sh => !exitShapes[1].Contains(sh)) || exitShapes[1].All(sh => !exitShapes[0].Contains(sh)))
+                goto tryAgain;
+        }
+
         LogDebug(_openBorders.Select(kvp => string.Format("{0} = {1}", kvp.Key, kvp.Value)).Join("\n"));
     }
 
