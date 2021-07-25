@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
 using WorldMazes;
@@ -98,9 +99,7 @@ class DACHMaze : WorldMazeBase
             ix++;
         }
 
-        foreach (var border in _openBorders)
-            if (border.Key.Contains("BL"))
-                LogDebug("{0} = {1}", border.Key, border.Value);
+        LogDebug(_openBorders.Select(kvp => string.Format("{0} = {1}", kvp.Key, kvp.Value)).Join("\n"));
     }
 
     protected override MoveResult TryMove(string fromState, Shape shape, object externalInfo = null)
