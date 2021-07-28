@@ -24,6 +24,6 @@ MonoBehaviour:
     your current state is always shown with every button press, or you can play in
     Memory Mode, where the visuals do not change and you must keep track of the buttons
     you\u2019re pressing. Standard Mode is enabled by default."
-  version: v2.0
+  version: v2.1
   outputFolder: build
   previewImage: {fileID: 2800000, guid: 361a316e5d4ab804db87f3c46a06fad3, type: 3}

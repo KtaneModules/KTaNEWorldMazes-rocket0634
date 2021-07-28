@@ -36,6 +36,7 @@ abstract class WorldMazeBase : MonoBehaviour
     void Awake()
     {
         _scaffold = Instantiate(ScaffoldPrefab, transform);
+        LogDebug("World Mazes version: 2.1");
         var moduleSelectable = GetComponent<KMSelectable>();
         moduleSelectable.Children = new KMSelectable[12];
         for (var i = 0; i < _scaffold.Shapes.Length; i++)
