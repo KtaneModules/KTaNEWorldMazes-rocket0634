@@ -1,0 +1,166 @@
+fileFormatVersion: 2
+guid: 8ca82677e52255d40b833623c2dc365a
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Display
+    100002: key
+    100004: key.001
+    100006: key.002
+    100008: key.003
+    100010: key.004
+    100012: key.005
+    100014: key.006
+    100016: key.007
+    100018: Key_1
+    100020: Key_2
+    100022: Key_3
+    100024: Key_4
+    100026: Key_5
+    100028: Key_6
+    100030: Key_7
+    100032: Key_8
+    100034: PuzzleBackground
+    100036: RecessedInner
+    100038: Transport
+    100040: //RootNode
+    400000: Display
+    400002: key
+    400004: key.001
+    400006: key.002
+    400008: key.003
+    400010: key.004
+    400012: key.005
+    400014: key.006
+    400016: key.007
+    400018: Key_1
+    400020: Key_2
+    400022: Key_3
+    400024: Key_4
+    400026: Key_5
+    400028: Key_6
+    400030: Key_7
+    400032: Key_8
+    400034: PuzzleBackground
+    400036: RecessedInner
+    400038: Transport
+    400040: //RootNode
+    2100000: Component_PuzzleBackground_mat
+    2100002: Component_Keypad_mat
+    2100004: Component_Keypad_Background_mat1
+    2300000: Display
+    2300002: key
+    2300004: key.001
+    2300006: key.002
+    2300008: key.003
+    2300010: key.004
+    2300012: key.005
+    2300014: key.006
+    2300016: key.007
+    2300018: PuzzleBackground
+    2300020: RecessedInner
+    2300022: Transport
+    3300000: Display
+    3300002: key
+    3300004: key.001
+    3300006: key.002
+    3300008: key.003
+    3300010: key.004
+    3300012: key.005
+    3300014: key.006
+    3300016: key.007
+    3300018: PuzzleBackground
+    3300020: RecessedInner
+    3300022: Transport
+    4300000: Transport
+    4300002: Display
+    4300004: key.004
+    4300006: key.005
+    4300008: key.006
+    4300010: key.007
+    4300012: key.003
+    4300014: key.002
+    4300016: key.001
+    4300018: RecessedInner
+    4300020: PuzzleBackground
+    4300022: key
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
