@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using WorldMazes;
+using WorldMazesExtension;
 using Rnd = UnityEngine.Random;
 
 abstract class WorldMazeBase : MonoBehaviour
@@ -36,7 +37,6 @@ abstract class WorldMazeBase : MonoBehaviour
     void Awake()
     {
         _scaffold = Instantiate(ScaffoldPrefab, transform);
-        LogDebug("World Mazes version: 2.1");
         var moduleSelectable = GetComponent<KMSelectable>();
         moduleSelectable.Children = new KMSelectable[12];
         for (var i = 0; i < _scaffold.Shapes.Length; i++)
@@ -44,20 +44,29 @@ abstract class WorldMazeBase : MonoBehaviour
             _scaffold.Shapes[i].Parent = moduleSelectable;
             moduleSelectable.Children[i + 4] = _scaffold.Shapes[i];
         }
+        _moduleIDCounters.IncSafe(Module.ModuleType);
+        _moduleID = _moduleIDCounters[Module.ModuleType];
         _scaffold.Reset.Parent = moduleSelectable;
         moduleSelectable.ChildRowLength = 4;
         var modConfig = new ModConfig<WorldSettings>("WorldSettings");
         Settings = modConfig.Settings;  // Reads settings from the file
         modConfig.Settings = Settings;  // Writes back the file
-        // Don't change settings if they're defined in the prefab
 #if !UNITY_EDITOR
+        // Don't try to get the version info if in Unity
+        try
+        {
+            LogDebug("World Mazes version: " + GetType().Version());
+        }
+        catch
+        {
+            LogDebug("World Mazes verison unavailable.");
+        }
+        // Don't change settings if they're defined in the prefab
         Mode = Settings.Mode;
         AutoReset = Settings.AutoReset;
 #endif
         ModeCheck();
 
-        _moduleIDCounters.IncSafe(Module.ModuleType);
-        _moduleID = _moduleIDCounters[Module.ModuleType];
         _scaffold.VisCurrent.color = Color.black;
         _scaffold.VisMaze.color = Color.black;
         _scaffold.VisDestination.color = Color.black;
