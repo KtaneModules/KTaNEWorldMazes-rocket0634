@@ -51,11 +51,12 @@ abstract class WorldMazeBase : MonoBehaviour
         var modConfig = new ModConfig<WorldSettings>("WorldSettings");
         Settings = modConfig.Settings;  // Reads settings from the file
         modConfig.Settings = Settings;  // Writes back the file
+        var modSource = GetComponent("ModSource");
 #if !UNITY_EDITOR
         // Don't try to get the version info if in Unity
         try
         {
-            LogDebug("World Mazes version: " + GetType().Version());
+            LogDebug("World Mazes version: " + modSource.Version());
         }
         catch
         {
