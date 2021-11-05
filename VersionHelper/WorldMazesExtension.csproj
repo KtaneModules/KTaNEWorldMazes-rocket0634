@@ -1,7 +1,8 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net35</TargetFramework>
+    <LangVersion>9</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <GameFolder Condition="'$(GameFolder)' == ''">C:\Program Files (x86)\Steam\steamapps\common\Keep Talking and Nobody Explodes\</GameFolder>
@@ -17,6 +18,12 @@
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
       <HintPath>$(GameFolder)\ktane_Data\Managed\Newtonsoft.Json.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine">
+      <HintPath>$(Unity)\Data\Managed\UnityEngine.dll</HintPath>
       <Private>false</Private>
     </Reference>
   </ItemGroup>
