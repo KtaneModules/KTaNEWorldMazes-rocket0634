@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using Assets.Scripts.Mods;
@@ -24,21 +23,25 @@ namespace WorldMazesExtension
             if (key == null)
                 return "Unavailable";
             // Return the version if it has already been grabbed.
-            return _modVersions.ContainsKey(key) ? _modVersions[key] : GetVersionFromGame(key, ModSource);
+            return _modVersions.ContainsKey(key) ? _modVersions[key] : GetVersionFromGame(key);
         }
 
         [MethodImpl(MethodImplOptions.NoInlining)]
-        private static string GetVersionFromGame(string id, object source)
+        private static string GetVersionFromGame(string id)
         {
-            // This is here as FirstOrDefault appears to throw a type exception if I try to compare Mod.ModID to string id.
-            // This curiously does not happen when it is compared to ModSource.ModName.
-            // Note that the project can still be built and ran regardless of the thrown error.
-            ModSource modSource = source as ModSource;
             // Cache the field for the loadedMods Dictionary
             LoadedMods ??= typeof(ModManager).GetField("loadedMods", BindingFlags.DeclaredOnly | BindingFlags.Instance | BindingFlags.NonPublic);
             // Search through loadedMods for the mod attached to this assembly
             // Each key in loadedMods and InstalledModInfos is the path to the mod
-            var key = ((Dictionary<string, Mod>)LoadedMods.GetValue(ModManager.Instance)).FirstOrDefault(x => x.Value.ModID == modSource.ModName).Key ?? "";
+            string key = "";
+            foreach (var entry in (Dictionary<string, Mod>)LoadedMods.GetValue(ModManager.Instance))
+            {
+                if (entry.Value.ModID == id)
+                {
+                    key = entry.Key;
+                    break;
+                }
+            }
             // Use the resulting folder to locate the ModInfo and obtain the mod's version
             var modInfo = key != "" ? ModManager.Instance.InstalledModInfos[key] : new ModInfo();
             _modVersions.Add(id, modInfo.Version ?? "Not found");
