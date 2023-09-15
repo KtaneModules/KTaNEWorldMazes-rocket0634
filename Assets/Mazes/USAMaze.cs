@@ -200,8 +200,9 @@ class USAMaze : WorldMazeBase
 
     private DayOfWeek getDow()
     {
-        if (_scaffold.Info.QueryWidgets("day", null).Count == 1)
-            return (DayOfWeek) Enum.Parse(typeof(DayOfWeek), _scaffold.Info.QueryWidgets("day", null).Select(x => Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, string>>(x)).First()["day"]);
+        List<string> responses = _scaffold.Info.QueryWidgets("day", null);
+        if (responses.Count == 1)
+            return (DayOfWeek) Enum.Parse(typeof(DayOfWeek), responses.Select(x => Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, string>>(x)).First()["day"]);
         return DateTime.Now.DayOfWeek;
     }
 

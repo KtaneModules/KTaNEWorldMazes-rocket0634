@@ -43,7 +43,8 @@ namespace WorldMazesExtension
                 }
             }
             // Use the resulting folder to locate the ModInfo and obtain the mod's version
-            var modInfo = key != "" ? ModManager.Instance.InstalledModInfos[key] : new ModInfo();
+            if (!ModManager.Instance.InstalledModInfos.TryGetValue(key, out ModInfo modInfo))
+                modInfo = default;
             _modVersions.Add(id, modInfo.Version ?? "Not found");
             return _modVersions[id];
         }
